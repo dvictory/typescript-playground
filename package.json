@@ -1,0 +1,44 @@
+{
+  "name": "@dvictory/typescript-playground",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/dvictory/typescript-playground",
+  "main": "./dist/index.js",
+  "module": "./module/index.js",
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "build": "npm run build:types && npm run build-node && npm run build-module",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
+    "bundle": "webpack",
+    "build-module": "cross-env BABEL_ENV=module babel ./src --out-dir ./module --extensions \".ts,.tsx\" --source-maps --copy-files",
+    "build-node": "babel ./src --out-dir ./dist --extensions \".ts,.tsx\" --source-maps --copy-files"
+  },
+  "targets": {},
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
+    "@babel/register": "^7.8.3",
+    "@types/big.js": "^4.0.5",
+    "@types/lodash": "^4.14.149",
+    "babel-loader": "^8.0.6",
+    "cross-env": "^7.0.0",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.8.4"
+  },
+  "files": [
+    "dist",
+    "module"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "env": {
+    "development": {
+      "presets": [
+        ["@babel/env", {
+          "targets": {
+            "node": 8
+          }
+        }],
+        "@babel/preset-typescript"
+      ],
+      "plugins": [
+        "@babel/plugin-transform-runtime",
+        "@babel/proposal-class-properties",
+        "@babel/proposal-object-rest-spread"
+      ]
+    },
+    "module": {
+      "presets": [
+        ["@babel/env", {
+          "targets": {
+            "node": 8
+          },
+          "modules": false
+        }],
+        "@babel/preset-typescript"
+      ],
+      "plugins": [
+        "@babel/plugin-transform-runtime",
+        "@babel/proposal-class-properties",
+        "@babel/proposal-object-rest-spread"
+      ]
+    }
+  }
+}
